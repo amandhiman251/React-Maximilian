@@ -6,11 +6,12 @@ import './App.css';
 class App extends Component {
 
     render(){
-          return(
-              <div class = "App">
+           return(
+               <div className = "App">
                   <h1>Hi, I am a React App</h1>
-              </div>
-          );
+               </div>
+           );
+    
     }
 }
 
