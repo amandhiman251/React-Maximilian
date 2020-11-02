@@ -21,7 +21,7 @@ class App extends Component {
                  {name : "julie", age : "50"} 
              ]  }
         )
-    };
+    }
     
     render(){
         return(
