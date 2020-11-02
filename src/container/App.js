@@ -38,17 +38,23 @@ class App extends Component {
             pading:"8px",
             cursor: "pointer"
         };
+        let persons = null;
+        if(this.state.showPerson){
+            persons = (
+            <div>
+            <Person name = {this.state.person[0].name} age = {this.state.person[0].age}  />
+            <Person name = {this.state.person[1].name} age = {this.state.person[1].age} change = {this.namechangeHandler } click={() => this.switchNameHandler("Balbir")} >My Hobbies: Racing </Person>
+            <Person name = {this.state.person[2].name} age ={this.state.person[1].age} change = {this.onChangeHandler} />
+            </div>);} else{
+                persons = null;
+            }
 
-        return(
+        return (
             <div className = "App">
                 <h1>Hi, I am a React App</h1>
                 <p>This is really working!</p>
                 <button style = {style} onClick={this.toggelPersonHandler}> Toggle Persons </button>
-                {this.state.showPerson?<div>
-                <Person name = {this.state.person[0].name} age = {this.state.person[0].age}  />
-                <Person name = {this.state.person[1].name} age = {this.state.person[1].age} change = {this.namechangeHandler } click={() => this.switchNameHandler("Balbir")} >My Hobbies: Racing </Person>
-                <Person name = {this.state.person[2].name} age ={this.state.person[1].age} change = {this.onChangeHandler} />
-                </div>: null}
+                {persons}
             </div>
            );
     
@@ -56,4 +62,3 @@ class App extends Component {
 }
 
 export default App
-// this is ineffcient method use bind method instead
