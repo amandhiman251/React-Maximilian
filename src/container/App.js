@@ -30,7 +30,8 @@ class App extends Component {
     }
      
     deletePersonHandler = (personIndex) => {
-        const abc = this.state.person;
+        //const abc = this.state.person.slice(); both this way creates a original copy of the array not copy only the pointer/reference
+        const abc = [...this.state.person];
         abc.splice(personIndex, 1);
         this.setState({person:abc});
     }
