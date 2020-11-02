@@ -27,9 +27,9 @@ class App extends Component {
        const val = event.target.value;
         this.setState ({
             person : [
-                { name : "karan" , age : "30"}, 
+                { name : "Karan" , age : "30"}, 
                 {name : val, age : "27"}, 
-                {name : "karan", age : "50"} 
+                {name : "Sweety", age : "50"} 
             ]  }
        )
     }
@@ -41,8 +41,8 @@ class App extends Component {
                 <p>This is really working!</p>
                 <button onClick={ () => this.switchNameHandler( "usha")}> Switch Name </button>
                 <Person name = {this.state.person[0].name} age = {this.state.person[0].age}  />
-                <Person name = {this.state.person[1].name} age = {this.state.person[1].age} changed = {this.namechangeHandler } click={() => this.switchNameHandler("Balbir")} >My Hobbies: Racing </Person>
-                <Person name = {this.state.person[2].name} age ={this.state.person[1].age}  />
+                <Person name = {this.state.person[1].name} age = {this.state.person[1].age} change = {this.namechangeHandler } click={() => this.switchNameHandler("Balbir")} >My Hobbies: Racing </Person>
+                <Person name = {this.state.person[2].name} age ={this.state.person[1].age} change = {this.onChangeHandler} />
             </div>
            );
     
