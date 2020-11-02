@@ -28,9 +28,9 @@ class App extends Component {
             <div className = "App">
                 <h1>Hi, I am a React App</h1>
                 <p>This is really working!</p>
-                <button onClick={ this.switchNameHandler.bind(this, "usha")}> Switch Name </button>
+                <button onClick={ () => this.switchNameHandler( "usha")}> Switch Name </button>
                 <Person name = {this.state.person[0].name} age = {this.state.person[0].age} />
-                <Person name = {this.state.person[1].name} age = {this.state.person[1].age} click={this.switchNameHandler.bind(this, "Balbir")} >My Hobbies: Racing </Person>
+                <Person name = {this.state.person[1].name} age = {this.state.person[1].age} click={() => this.switchNameHandler("Balbir")} >My Hobbies: Racing </Person>
                 <Person name = {this.state.person[2].name} age ={this.state.person[1].age} />
             </div>
            );
@@ -39,3 +39,4 @@ class App extends Component {
 }
 
 export default App
+// this is ineffcient method use bind method instead
