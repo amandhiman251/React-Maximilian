@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 // to use styled component library use npm install --save styled-components on vs terminal
 const StyledButton = styled.button`
-    background-color: green;
+    background-color: ${props=> props.cndn?'red':'green'};
     color : white;
     font: inherit;
     border: 1px solid blue;
@@ -14,7 +14,7 @@ const StyledButton = styled.button`
     cursor: pointer;
 
     &:hover{
-        background-color: lightgreen;
+        background-color: ${props=> props.cndn?'salmon':'lightgreen'};
         color: black;
     }
 `;
@@ -84,7 +84,7 @@ class App extends Component {
             <div  className = "App" >
                 <h1> Hi, I am a React App</h1>
                 <p className = {classes.join(" ")}>This is really working!</p>
-                <StyledButton  onClick={this.toggelPersonHandler}> Toggle Persons </StyledButton>
+                <StyledButton cndn={this.state.showPerson} onClick={this.toggelPersonHandler}> Toggle Persons </StyledButton>
                 {persons}
             </div>
            );
