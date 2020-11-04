@@ -3,6 +3,7 @@ import './App.css';
 import Person from '../component/Person/Person';
 
 
+
 class App extends Component {
      state={ 
          person : [
@@ -11,7 +12,8 @@ class App extends Component {
              { id: "asa", name : "julie", age : "5"} 
          ],
          otherstate :'some other value',
-         showPerson: true  
+         showPerson: true,
+         ame: "App"  
      }
 
      toggelPersonHandler = () => {
@@ -34,6 +36,7 @@ class App extends Component {
         abc.splice(personIndex, 1);
         this.setState({person:abc});
     }
+
 
     render() {
         const style = {
@@ -58,19 +61,22 @@ class App extends Component {
                     changed ={(event) => this.namechangeHandler(event, person.id)} />
                     })}
                 
-                //</div>
+                </div>
             );
             style.backgroundColor = "red";
             }
-       
-                                                                                               
-           
-            
-
+           const classes =[];
+           if(this.state.person.length <= 2 ) {
+               classes.push("red");
+           }
+           if(this.state.person.length <= 1 ) {
+            classes.push("bold");
+        }
+         
         return (
-            <div className = "App">
-                <h1>Hi, I am a React App</h1>
-                <p>This is really working!</p>
+            <div  className = "App" >
+                <h1> Hi, I am a React App</h1>
+                <p className = {classes.join(" ")}>This is really working!</p>
                 <button style = {style} onClick={this.toggelPersonHandler}> Toggle Persons </button>
                 {persons}
             </div>
@@ -80,3 +86,4 @@ class App extends Component {
 }
 
 export default App
+//class.join(" ") is to convert into a string
