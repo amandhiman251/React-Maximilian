@@ -18,15 +18,14 @@ class App extends Component {
         this.setState( {showPerson: !this.state.showPerson} );
      }
     
-    namechangeHandler =(event, key) => {
-       const val = event.target.value;
-        this.setState ({
-            person : [
-                { name : "Karan" , age : "30"}, 
-                { name : val, age : "27"}, 
-                { name : "Sweety", age : "50"} 
-            ]  }
-       )
+    namechangeHandler =(event, id) => {
+        const personIndex = this.state.person.findIndex(p => { 
+            return p.id === id});
+        const per1 = {...this.state.person[personIndex]};
+        per1.name =event.target.value;
+        const per2 =[...this.state.person];
+        per2[personIndex] = per1;
+        this.setState({person:per2})
     }
      
     deletePersonHandler = (personIndex) => {
@@ -43,18 +42,27 @@ class App extends Component {
             border:"1px solid blue",
             pading:"8px",
             cursor: "pointer"
-        };
+        };   
         let persons = null;
-        if(this.state.showPerson){
+        if(this.state.showPerson) {
+        
             persons = (
             <div>
-                {this.state.person.map((person, index) => { return <Person name = {person.name} age = {person.age}
-                 key= {person.id} 
-                click = {() => this.deletePersonHandler(index)} />}) }
-             </div>
-             ); 
+                {this.state.person.map((person, index) => { 
+                    return <Person 
+                    name = {person.name} 
+                    age = {person.age}
+                    key= {person.id} 
+                    click = {() => this.deletePersonHandler(index)}
+                    changed ={(event) => this.namechangeHandler(event, person.id)} />
+                    })}
+                
+                //</div>
+            );
             }
 
+        
+                                                                                               
            
             
 
