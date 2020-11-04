@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import './App.css';
 import Person from '../component/Person/Person';
-
-
+import Radium from 'radium';
+// to use radium we have to install this package for installing simply go to terminal in vs and type npm install -- save radium
 
 class App extends Component {
      state={ 
@@ -45,7 +45,11 @@ class App extends Component {
             font:"inherit",
             border:"1px solid blue",
             pading:"8px",
-            cursor: "pointer"
+            cursor: "pointer",
+            ':hover':{
+                backgroundColor: 'lightgreen',
+                color: 'black'
+            }
         };   
         let persons = null;
         if(this.state.showPerson) {
@@ -64,6 +68,10 @@ class App extends Component {
                 </div>
             );
             style.backgroundColor = "red";
+            style[':hover']={
+                backgroundColor: 'salmon',
+                color: 'black'
+            };
             }
            const classes =[];
            if(this.state.person.length <= 2 ) {
@@ -85,5 +93,4 @@ class App extends Component {
     }
 }
 
-export default App
-//class.join(" ") is to convert into a string
+export default Radium(App);
