@@ -1,9 +1,23 @@
 import React, {Component} from 'react';
 import './App.css';
 import Person from '../component/Person/Person';
-import Radium, {StyleRoot} from 'radium';
-// to use radium we have to install this package for installing simply go to terminal in vs and type npm install -- save radium
+import styled from 'styled-components';
 
+
+// to use styled component library use npm install --save styled-components on vs terminal
+const StyledButton = styled.button`
+    background-color: green;
+    color : white;
+    font: inherit;
+    border: 1px solid blue;
+    pading: 8px;
+    cursor: pointer;
+
+    &:hover{
+        background-color: lightgreen;
+        color: black;
+    }
+`;
 class App extends Component {
      state={ 
          person : [
@@ -39,18 +53,7 @@ class App extends Component {
 
 
     render() {
-        const style = {
-            backgroundColor: "green",
-            color :"white",
-            font:"inherit",
-            border:"1px solid blue",
-            pading:"8px",
-            cursor: "pointer",
-            ':hover':{
-                backgroundColor: 'lightgreen',
-                color: 'black'
-            }
-        };   
+        const style = null;
         let persons = null;
         if(this.state.showPerson) {
         
@@ -67,11 +70,7 @@ class App extends Component {
                 
                 </div>
             );
-            style.backgroundColor = "red";
-            style[':hover']={
-                backgroundColor: 'salmon',
-                color: 'black'
-            };
+            //style.backgroundColor = "red";
             }
            const classes =[];
            if(this.state.person.length <= 2 ) {
@@ -82,17 +81,15 @@ class App extends Component {
         }
          
         return (
-            <StyleRoot>
             <div  className = "App" >
                 <h1> Hi, I am a React App</h1>
                 <p className = {classes.join(" ")}>This is really working!</p>
-                <button style = {style} onClick={this.toggelPersonHandler}> Toggle Persons </button>
+                <StyledButton  onClick={this.toggelPersonHandler}> Toggle Persons </StyledButton>
                 {persons}
             </div>
-            </StyleRoot>
            );
     
     }
 }
 
-export default Radium(App);
+export default App;
