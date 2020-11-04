@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import Person from '../component/Person/Person';
-import Radium from 'radium';
+import Radium, {StyleRoot} from 'radium';
 // to use radium we have to install this package for installing simply go to terminal in vs and type npm install -- save radium
 
 class App extends Component {
@@ -82,12 +82,14 @@ class App extends Component {
         }
          
         return (
+            <StyleRoot>
             <div  className = "App" >
                 <h1> Hi, I am a React App</h1>
                 <p className = {classes.join(" ")}>This is really working!</p>
                 <button style = {style} onClick={this.toggelPersonHandler}> Toggle Persons </button>
                 {persons}
             </div>
+            </StyleRoot>
            );
     
     }
