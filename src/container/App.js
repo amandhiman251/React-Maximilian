@@ -1,23 +1,9 @@
 import React, {Component} from 'react';
-import './App.css';
+import aman from  './App.module.css';
 import Person from '../component/Person/Person';
-import styled from 'styled-components';
 
+// using css module allow us to seperate css and js code and also enable us to styling in  individual element scope using unique css class name for each element
 
-// to use styled component library use npm install --save styled-components on vs terminal
-const StyledButton = styled.button`
-    background-color: ${props=> props.cndn?'red':'green'};
-    color : white;
-    font: inherit;
-    border: 1px solid blue;
-    pading: 8px;
-    cursor: pointer;
-
-    &:hover{
-        background-color: ${props=> props.cndn?'salmon':'lightgreen'};
-        color: black;
-    }
-`;
 class App extends Component {
      state={ 
          person : [
@@ -26,7 +12,7 @@ class App extends Component {
              { id: "asa", name : "julie", age : "5"} 
          ],
          otherstate :'some other value',
-         showPerson: true,
+         showPerson: false,
          ame: "App"  
      }
 
@@ -53,8 +39,9 @@ class App extends Component {
 
 
     render() {
-        const style = null;
         let persons = null;
+        let btnClass = [aman.Button];
+    
         if(this.state.showPerson) {
         
             persons = (
@@ -70,21 +57,21 @@ class App extends Component {
                 
                 </div>
             );
-            //style.backgroundColor = "red";
+            btnClass.push(aman.Red);
             }
            const classes =[];
            if(this.state.person.length <= 2 ) {
-               classes.push("red");
+               classes.push(aman.red);
            }
            if(this.state.person.length <= 1 ) {
-            classes.push("bold");
+            classes.push(aman.bold);
         }
          
         return (
-            <div  className = "App" >
+            <div  className = {aman.App} >
                 <h1> Hi, I am a React App</h1>
                 <p className = {classes.join(" ")}>This is really working!</p>
-                <StyledButton cndn={this.state.showPerson} onClick={this.toggelPersonHandler}> Toggle Persons </StyledButton>
+                <button className= {btnClass.join(' ')} onClick={this.toggelPersonHandler}> Toggle Persons </button>
                 {persons}
             </div>
            );
