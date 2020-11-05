@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import aman from  './App.module.css';
 import Person from '../component/Person/Person';
+import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 
 // using css module allow us to seperate css and js code and also enable us to styling in  individual element scope using unique css class name for each element
 
@@ -12,8 +13,7 @@ class App extends Component {
              { id: "asa", name : "julie", age : "5"} 
          ],
          otherstate :'some other value',
-         showPerson: false,
-         ame: "App"  
+         showPerson: false
      }
 
      toggelPersonHandler = () => {
@@ -47,13 +47,11 @@ class App extends Component {
             persons = (
             <div>
                 {this.state.person.map((person, index) => { 
-                    return <Person 
-                    per ={this.state.person.length}
+                    return <ErrorBoundary key= {person.id}> <Person 
                     name = {person.name} 
                     age = {person.age}
-                    key= {person.id} 
                     click = {() => this.deletePersonHandler(index)}
-                    changed ={(event) => this.namechangeHandler(event, person.id)} />
+                    changed ={(event) => this.namechangeHandler(event, person.id)} /></ErrorBoundary>
                     })}
                 
                 </div>
