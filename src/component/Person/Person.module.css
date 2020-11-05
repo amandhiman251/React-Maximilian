@@ -11,3 +11,11 @@
         width: 450px;
     }
 }
+
+.Person p {
+    color: green;
+}
+
+.Person p.Blue{
+    color: blue;
+}

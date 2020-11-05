@@ -48,6 +48,7 @@ class App extends Component {
             <div>
                 {this.state.person.map((person, index) => { 
                     return <Person 
+                    per ={this.state.person.length}
                     name = {person.name} 
                     age = {person.age}
                     key= {person.id} 
@@ -71,8 +72,7 @@ class App extends Component {
             <div  className = {aman.App} >
                 <h1> Hi, I am a React App</h1>
                 <p className = {classes.join(" ")}>This is really working!</p>
-                <button className= {btnClass} onClick={this.toggelPersonHandler}> Toggle Persons </button><br />
-                <button>Just for try</button>
+                <button className= {btnClass} onClick={this.toggelPersonHandler}> Toggle Persons </button>
                 {persons}
             </div>
            );
