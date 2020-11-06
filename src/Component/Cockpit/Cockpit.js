@@ -1,11 +1,23 @@
 import React, {useEffect} from 'react';
 import aman from  './Cockpit.module.css';
 
-
+// use []if you want to use it only once when component render
 const Cockpit =(props) => {
-    useEffect(()=>
-    console.log('[Cockpit.js] useEffect)')
-    )
+//     useEffect(()=> {
+//     console.log('[Cockpit.js] useEffect');
+//     setTimeout(()=>{
+//         alert("useEffect");
+//     },1000);
+// },[]);
+//use an component inside[props.Persons] if you want to run for this
+useEffect(()=> {
+    console.log('[Cockpit.js] useEffect');
+    setTimeout(()=>{
+        alert("useEffect");
+    },1000);
+},[props.Persons]);
+// you can use as many time as you want useEffect and you can pass many arguments to [a,b,c,c]
+
     const classes =[];
            if(props.st.length <= 2 ) {
                classes.push(aman.red);
