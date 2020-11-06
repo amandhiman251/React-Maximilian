@@ -26,8 +26,18 @@ class App extends Component {
      componenWillMount(){
          console.log("App.js componentWilMount");
      }
+
      componentDidMount(){
          console.log("App.js componentDidMount");
+     }
+
+     shouldComponentUpdate(nextProps, nextState){
+         console.log('[App.js] shouldComponentUpdate');
+         return true;
+     }
+
+     componentDidUpdate(){
+         console.log('[App.js] componentDidUpdate')
      }
 
      toggelPersonHandler = () => {
