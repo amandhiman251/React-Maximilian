@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import aman from  './App.module.css';
-import Person from '../component/Person/Person';
-import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
+import './App.css';
+import Persons from '../Component/Persons/Persons';
+import Cockpit from '../Component/Cockpit/Cockpit';
 
-// using css module allow us to seperate css and js code and also enable us to styling in  individual element scope using unique css class name for each element
+// have to move complete code in cockpit that belongs to cockpit 
 
 class App extends Component {
      state={ 
@@ -40,37 +40,27 @@ class App extends Component {
 
     render() {
         let persons = null;
-        let btnClass = "";
     
         if(this.state.showPerson) {
         
             persons = (
             <div>
-                {this.state.person.map((person, index) => { 
-                    return <ErrorBoundary key= {person.id}> <Person 
-                    name = {person.name} 
-                    age = {person.age}
-                    click = {() => this.deletePersonHandler(index)}
-                    changed ={(event) => this.namechangeHandler(event, person.id)} /></ErrorBoundary>
-                    })}
-                
-                </div>
+                <Persons 
+                person ={this.state.person}
+                clicked = {this.deletePersonHandler}
+                changed = {this.namechangeHandler} />
+            </div>
             );
-            btnClass = aman.Red;
             }
-           const classes =[];
-           if(this.state.person.length <= 2 ) {
-               classes.push(aman.red);
-           }
-           if(this.state.person.length <= 1 ) {
-            classes.push(aman.bold);
-        }
+            
+           
          
         return (
-            <div  className = {aman.App} >
-                <h1> Hi, I am a React App</h1>
-                <p className = {classes.join(" ")}>This is really working!</p>
-                <button className= {btnClass} onClick={this.toggelPersonHandler}> Toggle Persons </button>
+            <div  className = "App" >
+                <Cockpit
+                showper = {this.state.showPerson}
+                tgl = {this.toggelPersonHandler}
+                st ={this.state.person} />
                 {persons}
             </div>
            );

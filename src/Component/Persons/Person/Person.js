@@ -4,10 +4,6 @@ import sweety from './Person.module.css';
 
 
 const Person = (props) => {
-    const err = Math.random();
-    if(err >0.7){
-        throw new Error('Something went wrong');
-    }
 
     return (
         <div className= {sweety.Person}>
