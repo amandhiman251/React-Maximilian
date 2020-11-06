@@ -16,7 +16,7 @@ const Cockpit =(props) => {
          }
     return(
         <div className= {aman.Cockpit}>
-            <h1> Hi, I am a React App</h1>
+            <h1>{props.ttl}</h1>
             <p className = {classes.join(" ")}>This is really working!</p>
             <button className = {btnClass} onClick={props.tgl} > Toggle Person </button>
         </div>

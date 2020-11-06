@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App title = {"Person Manager"} />
   </React.StrictMode>,
   document.getElementById('root')
 );
