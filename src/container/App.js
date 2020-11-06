@@ -3,9 +3,13 @@ import './App.css';
 import Persons from '../Component/Persons/Persons';
 import Cockpit from '../Component/Cockpit/Cockpit';
 
-// have to move complete code in cockpit that belongs to cockpit 
+
 
 class App extends Component {
+    constructor(props){
+        super(props);
+        console.log("App.js Constructor");
+    }
      state={ 
          person : [
              { id: "asd", name : "Aman", age : "30"}, 
@@ -14,6 +18,16 @@ class App extends Component {
          ],
          otherstate :'some other value',
          showPerson: false
+     }
+     static getDerivedStateFromProps(props, state){
+         console.log("App.js GetDerivedStateFromProps",props);
+         return state;
+     }
+     componenWillMount(){
+         console.log("App.js componentWilMount");
+     }
+     componentDidMount(){
+         console.log("App.js componentDidMount");
      }
 
      toggelPersonHandler = () => {
@@ -39,6 +53,7 @@ class App extends Component {
 
 
     render() {
+        console.log("APP,js Render");
         let persons = null;
     
         if(this.state.showPerson) {
