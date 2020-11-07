@@ -29,10 +29,10 @@ const Cockpit = props => {
 // you can use as many time as you want useEffect and you can pass many arguments to [a,b,c,c]
 
     const classes =[];
-           if(props.st.length <= 2 ) {
+           if(props.personLength <= 2 ) {
                classes.push(aman.red);
            }
-           if(props.st.length <= 1 ) {
+           if(props.personLength <= 1 ) {
             classes.push(aman.bold);
         }
         let btnClass = null;
@@ -48,4 +48,4 @@ const Cockpit = props => {
             );
 }
 
-export default Cockpit;
+export default React.memo(Cockpit);

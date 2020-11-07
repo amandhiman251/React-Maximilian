@@ -88,11 +88,10 @@ class App extends Component {
                 <div  className = "App" >
                 <button onClick = {() => this.setState({showCockpit: false})}> Remove Cockpit</button>
                 {this.state.showCockpit?<Cockpit
-                Persons ={this.state.person}
                 ttl ={this.props.title}
                 showper = {this.state.showPerson}
                 tgl = {this.toggelPersonHandler}
-                st ={this.state.person} />:null}
+                personLength ={this.state.person.length} />:null}
                 {persons}
             </div>
            );
