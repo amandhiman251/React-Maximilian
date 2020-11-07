@@ -1,15 +1,23 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import Person from './Person/Person';
 
-class Persons extends Component { 
-    shouldComponentUpdate(nextProps, nextState){
-        console.log('[Persons.js] shouldComponentUpdate');
-        if(nextProps.person!==this.props.person){
-        return true;
-        } else{
-            return false;
-        }
-    }
+class Persons extends PureComponent { 
+    /* if we use shouldComponentUpdate life cycle than 
+    we have to check every props in this case like 
+    props.clicked and props.changed and this will be 
+    a lot of code so instead this use Pure component 
+    this wil to the same work with no code*/
+
+    /* shouldComponentUpdate(nextProps, nextState){
+         console.log('[Persons.js] shouldComponentUpdate');
+         if(nextProps.person!==this.props.person
+            ||nextProps.clicked!==this.props.clicked
+            ||nextProps.changed!==this.props.changed){
+         return true;
+         } else{
+             return false;
+         }
+     }*/
     getSnapshotBeforeUpdate(prevProps, prevState) {
         console.log('[Persons.js] getSnapshotBeforeUpdate');
         return {message: "SnapShot!"};
