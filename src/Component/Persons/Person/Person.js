@@ -1,5 +1,6 @@
 import React , {Component} from 'react';
 import sweety from './Person.module.css';
+import Auxiliary from '../../../hoc/Auxiliary';
 
 
 
@@ -10,11 +11,11 @@ import sweety from './Person.module.css';
 
         return (
             //<div className= {sweety.Person}>
-                [
-                <p onClick= {this.props.click}>I am {this.props.name} and I am {this.props.age} years old.</p>,
-                <p>{this.props.children}</p>,
+                <Auxiliary>
+                <p onClick= {this.props.click}>I am {this.props.name} and I am {this.props.age} years old.</p>
+                <p>{this.props.children}</p>
                 <input type="text" onChange = {this.props.changed} defaultValue= {this.props.name} />
-                ]
+                </Auxiliary>
             //</div>
         );
     };
