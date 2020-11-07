@@ -4,7 +4,11 @@ import Person from './Person/Person';
 class Persons extends Component { 
     shouldComponentUpdate(nextProps, nextState){
         console.log('[Persons.js] shouldComponentUpdate');
+        if(nextProps.person!==this.props.person){
         return true;
+        } else{
+            return false;
+        }
     }
     getSnapshotBeforeUpdate(prevProps, prevState) {
         console.log('[Persons.js] getSnapshotBeforeUpdate');
