@@ -15,7 +15,11 @@ import PropTypes from 'prop-types';
                 <Auxiliary>
                 <p onClick= {this.props.click}>I am {this.props.name} and I am {this.props.age} years old.</p>
                 <p>{this.props.children}</p>
-                <input type="text" onChange = {this.props.changed} defaultValue= {this.props.name} />
+                <input 
+                type="text" 
+                onChange = {this.props.changed} 
+                ref = {(inputEl) => inputEl.focus()}
+                value= {this.props.name} />
                 </Auxiliary>
             //</div>
         );
