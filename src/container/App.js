@@ -5,6 +5,11 @@ import Cockpit from '../Component/Cockpit/Cockpit';
 import withClass from '../hoc/withClass';
 import Auxiliary from '../hoc/Auxiliary';
 
+/*when we using this.setState to change state than 
+it is schduled by the react than don't expect the 
+result immediatly speciallay in bigger apps, in 
+this case always use the approach as we are using in nameChange Handler
+see the result of counter in inpect > component> state> changeCounter*/
 
 class App extends Component {
     constructor(props){
@@ -19,7 +24,8 @@ class App extends Component {
          ],
          otherstate :'some other value',
          showPerson: false,
-         showCockpit: true
+         showCockpit: true,
+         changeCounter: 0
      }
      static getDerivedStateFromProps(props, state){
          console.log("App.js GetDerivedStateFromProps",props);
@@ -53,8 +59,11 @@ class App extends Component {
         per1.name =event.target.value;
         const per2 =[...this.state.person];
         per2[personIndex] = per1;
-        this.setState({person:per2})
-    }
+        this.setState((prevState, props) => {
+            return { person:per2, 
+            changeCounter: prevState.changeCounter+1};
+        });
+    };
      
     deletePersonHandler = (personIndex) => {
         //const abc = this.state.person.slice(); both this way creates a original copy of the array not copy only the pointer/reference
