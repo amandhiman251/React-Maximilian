@@ -2,7 +2,7 @@ import React , {Component} from 'react';
 import sweety from './Person.module.css';
 import Auxiliary from '../../../hoc/Auxiliary';
 import withClass from '../../../hoc/withClass';
-
+import PropTypes from 'prop-types';
 
 
  class Person extends Component {
@@ -22,5 +22,11 @@ import withClass from '../../../hoc/withClass';
     };
     
 };
+Person.propTypes = {
+    name: PropTypes.string,
+    click:PropTypes.func,
+    age: PropTypes.number,
+    changed: PropTypes.func 
+}
 
 export default withClass(Person, sweety.Person);

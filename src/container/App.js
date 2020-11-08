@@ -5,11 +5,9 @@ import Cockpit from '../Component/Cockpit/Cockpit';
 import withClass from '../hoc/withClass';
 import Auxiliary from '../hoc/Auxiliary';
 
-/*when we using this.setState to change state than 
-it is schduled by the react than don't expect the 
-result immediatly speciallay in bigger apps, in 
-this case always use the approach as we are using in nameChange Handler
-see the result of counter in inpect > component> state> changeCounter*/
+/*If you want to display that which type of props 
+your app will accept than you have to install first
+ a pacakage npm instal --save prop-types*/
 
 class App extends Component {
     constructor(props){
@@ -18,9 +16,9 @@ class App extends Component {
     }
      state={ 
          person : [
-             { id: "asd", name : "Aman", age : "30"}, 
-             { id: "ass", name : "Sweety", age : "27"}, 
-             { id: "asa", name : "julie", age : "5"} 
+             { id: "asd", name : "Aman", age : 30}, 
+             { id: "ass", name : "Sweety", age : 27}, 
+             { id: "asa", name : "julie", age : 5} 
          ],
          otherstate :'some other value',
          showPerson: false,
