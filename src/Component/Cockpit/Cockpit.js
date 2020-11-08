@@ -46,6 +46,7 @@ const Cockpit = props => {
             <h1>{props.ttl}</h1>
             <p className = {classes.join(" ")}>This is really working!</p>
             <button ref ={togglebtnRef} className = {btnClass} onClick={props.tgl} > Toggle Person </button>
+            <button onClick={props.login}>Login</button>
         </div>
             );
 }

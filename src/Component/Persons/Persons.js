@@ -36,7 +36,8 @@ class Persons extends PureComponent {
         return( 
         this.props.person.map((person, index) => { 
         return (<Person 
-        name = {person.name} 
+        name = {person.name}
+        isauth = {this.props.isauthenticated}
         age = {person.age}
         key= {person.id}
         click = {() => this.props.clicked(index)}
