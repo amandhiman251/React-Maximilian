@@ -1,10 +1,11 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useContext} from 'react';
 import aman from  './Cockpit.module.css';
 import AuthContext from '../../context/auth-context';
 
 // use []if you want to use it only once when component render
 const Cockpit = props => {
     const togglebtnRef = useRef(null);
+    const Auth = useContext(AuthContext);
     useEffect(()=> {
     console.log('[Cockpit.js] useEffect');
     // setTimeout(()=>{
@@ -47,7 +48,7 @@ const Cockpit = props => {
             <h1>{props.ttl}</h1>
             <p className = {classes.join(" ")}>This is really working!</p>
             <button ref ={togglebtnRef} className = {btnClass} onClick={props.tgl} > Toggle Person </button>
-    <AuthContext.Consumer >{context => <button onClick={context.login}>Login</button>}</AuthContext.Consumer>
+            <button onClick={Auth.login}>Login</button>
         </div>
             );
 }

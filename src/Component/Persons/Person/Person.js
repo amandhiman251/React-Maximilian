@@ -11,6 +11,7 @@ import AuthContext from '../../../context/auth-context';
         super(props)
         this.inputElementref = React.createRef();
     }
+    static contextType = AuthContext;
     componentDidMount() {
         //this.inputElement.focus()
         this.inputElementref.current.focus();
@@ -23,8 +24,7 @@ import AuthContext from '../../../context/auth-context';
         return (
             //<div className= {sweety.Person}>
                 <Auxiliary>
-                <AuthContext.Consumer>{context => context.authentication?<p>Authenticated</p>:<p>Please Login</p>}
-                </AuthContext.Consumer>
+                {this.context.authentication?<p>Authenticated</p>:<p>Please Login</p>}
                 <p onClick= {this.props.click}>I am {this.props.name} and I am {this.props.age} years old.</p>
                 <p>{this.props.children}</p>
                 <input 
