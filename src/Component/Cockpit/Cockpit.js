@@ -1,13 +1,15 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 import aman from  './Cockpit.module.css';
 
 // use []if you want to use it only once when component render
 const Cockpit = props => {
+    const togglebtnRef = useRef(null);
     useEffect(()=> {
     console.log('[Cockpit.js] useEffect');
-    setTimeout(()=>{
-        alert("useEffect");
-    },1000);
+    // setTimeout(()=>{
+    //     alert("useEffect");
+    // },1000);
+    togglebtnRef.current.click();
     return () =>{ 
         console.log("[Cockpit.js] cleaning up work");
     };
@@ -43,7 +45,7 @@ const Cockpit = props => {
         <div className= {aman.Cockpit}>
             <h1>{props.ttl}</h1>
             <p className = {classes.join(" ")}>This is really working!</p>
-            <button className = {btnClass} onClick={props.tgl} > Toggle Person </button>
+            <button ref ={togglebtnRef} className = {btnClass} onClick={props.tgl} > Toggle Person </button>
         </div>
             );
 }
