@@ -3,6 +3,7 @@ import sweety from './Person.module.css';
 import Auxiliary from '../../../hoc/Auxiliary';
 import withClass from '../../../hoc/withClass';
 import PropTypes from 'prop-types';
+import AuthContext from '../../../context/auth-context';
 
 
  class Person extends Component {
@@ -22,7 +23,8 @@ import PropTypes from 'prop-types';
         return (
             //<div className= {sweety.Person}>
                 <Auxiliary>
-                {this.props.isauth?<p>Authenticated</p>:<p>Please Login</p>}
+                <AuthContext.Consumer>{context => context.authentication?<p>Authenticated</p>:<p>Please Login</p>}
+                </AuthContext.Consumer>
                 <p onClick= {this.props.click}>I am {this.props.name} and I am {this.props.age} years old.</p>
                 <p>{this.props.children}</p>
                 <input 

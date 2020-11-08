@@ -4,6 +4,7 @@ import Persons from '../Component/Persons/Persons';
 import Cockpit from '../Component/Cockpit/Cockpit';
 import withClass from '../hoc/withClass';
 import Auxiliary from '../hoc/Auxiliary';
+import AuthContext from '../context/auth-context';
 
 /*If you want to display that which type of props 
 your app will accept than you have to install first
@@ -51,7 +52,7 @@ class App extends Component {
         this.setState( {showPerson: !this.state.showPerson} );
      }
 
-     loginHandler= () => {
+     loginHandler = () => {
          this.setState({authentication: true})
      }
     
@@ -87,7 +88,6 @@ class App extends Component {
             <div>
                 <Persons 
                 person ={this.state.person}
-                isauthenticated = {this.state.authentication}
                 clicked = {this.deletePersonHandler}
                 changed = {this.namechangeHandler} />
             </div>
@@ -101,13 +101,14 @@ class App extends Component {
             
                 <Auxiliary>
                 <button onClick = {() => this.setState({showCockpit: false})}> Remove Cockpit</button>
+                <AuthContext.Provider value={{authentication: this.state.authentication, login: this.loginHandler}}>
                 {this.state.showCockpit?<Cockpit
-                login={this.loginHandler}
                 ttl ={this.props.title}
                 showper = {this.state.showPerson}
                 tgl = {this.toggelPersonHandler}
                 personLength ={this.state.person.length} />:null}
                 {persons}
+                </AuthContext.Provider>
                 </Auxiliary>
            );
     
