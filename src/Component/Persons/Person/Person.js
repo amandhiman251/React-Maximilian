@@ -1,6 +1,6 @@
 import React , {Component, Fragment} from 'react';
-import sweety from './Person.module.css';
-import Auxiliary from '../../../hoc/Auxiliary';
+//import sweety from './Person.module.css';
+//import Auxiliary from '../../../hoc/Auxiliary';
 
 
 
